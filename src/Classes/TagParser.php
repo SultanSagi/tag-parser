@@ -9,8 +9,8 @@ class TagParser implements ParserInterface {
     protected $tags;
 
     public function parse($data) {
-        // $content = file_get_contents($data);
-        $content = $data;
+        $content = file_get_contents($data);
+        // $content = $data;
 
         $tags = $this->match($content);
         $this->tags = $tags;
@@ -23,7 +23,7 @@ class TagParser implements ParserInterface {
     }
 
     public function tagsCount() {
-        return 2;
+        return count($this->tags);
     }
 
     private function match($data): array {
